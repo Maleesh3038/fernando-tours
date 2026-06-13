@@ -177,6 +177,7 @@ export default function HomePage() {
         }
         /* ── MOBILE ── */
         @media(max-width:768px){
+          #timeBadge{display:none!important}
           .pkg-grid{grid-template-columns:1fr!important}
           .why-grid{grid-template-columns:1fr 1fr!important}
           .testi-grid{grid-template-columns:1fr!important}
@@ -241,7 +242,7 @@ export default function HomePage() {
         <img
           src="/images/sigiriya.png"
           alt="Sigiriya Rock Fortress Sri Lanka"
-          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center 35%"}}
+          style={{position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",objectPosition:"center 25%"}}
         />
 
         {/* Day/Night overlay - changes automatically by real time */}
@@ -254,13 +255,13 @@ export default function HomePage() {
         <div ref={cloudsRef} style={{position:"absolute",inset:0,pointerEvents:"none",overflow:"hidden"}} />
 
         {/* Bottom gradient so text is always readable */}
-        <div style={{position:"absolute",bottom:0,left:0,right:0,height:"70%",background:"linear-gradient(to top,rgba(5,10,30,0.95) 0%,rgba(8,14,36,0.6) 45%,transparent 100%)",pointerEvents:"none"}} />
+        <div style={{position:"absolute",bottom:0,left:0,right:0,height:"70%",background:"linear-gradient(to top,rgba(5,10,30,0.92) 0%,rgba(8,14,36,0.45) 40%,rgba(0,0,0,0.1) 70%,transparent 100%)",pointerEvents:"none"}} />
 
-        {/* Time badge - top right */}
-        <div id="timeBadge" style={{position:"absolute",top:"5.5rem",right:"5%",zIndex:20,background:"rgba(255,140,0,0.22)",backdropFilter:"blur(10px)",border:"1px solid rgba(255,140,0,0.55)",borderRadius:50,padding:"0.55rem 1.4rem",fontSize:"0.88rem",color:"#FFB347",fontWeight:700,letterSpacing:"0.5px",textShadow:"0 1px 8px rgba(0,0,0,0.5)"}} />
+        {/* Time badge - top right, hidden on mobile */}
+        <div id="timeBadge" style={{position:"absolute",top:"5rem",right:"5%",zIndex:20,background:"rgba(255,140,0,0.22)",backdropFilter:"blur(10px)",border:"1px solid rgba(255,140,0,0.55)",borderRadius:50,padding:"0.45rem 1.1rem",fontSize:"0.8rem",color:"#FFB347",fontWeight:700,letterSpacing:"0.4px",textShadow:"0 1px 8px rgba(0,0,0,0.5)"}} />
 
         {/* Hero content - bottom aligned */}
-        <div style={{position:"relative",zIndex:10,flex:1,display:"flex",alignItems:"flex-end",padding:"0 5%",paddingBottom:"clamp(2rem,5vw,5rem)"}}>
+        <div style={{position:"relative",zIndex:10,flex:1,display:"flex",alignItems:"center",padding:"0 5%",paddingTop:"clamp(5rem,8vw,8rem)",paddingBottom:"clamp(2rem,5vw,4rem)"}}>
           <div style={{maxWidth:620}}>
 
             <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(255,140,0,0.18)",border:"1px solid rgba(255,140,0,0.45)",color:"#FFB347",padding:"0.4rem 1rem",borderRadius:50,fontSize:"0.75rem",fontWeight:600,letterSpacing:1,textTransform:"uppercase",marginBottom:"1.4rem"}}>
