@@ -315,7 +315,7 @@ export default function HomePage() {
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Iconic Destinations</h2>
           <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>From ancient rock fortresses to golden beaches — every corner of the island holds a story.</p>
         </div>
-        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.5rem",marginBottom:"2.5rem"}} className="dest-grid-3">
+        <div className="reveal dest-grid-3" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.5rem",marginBottom:"2.5rem"}}>
           {[
             {name:"Sigiriya Rock Fortress",tag:"UNESCO Heritage",tagColor:"#C8860A",loc:"Central Province",time:"Dec – Apr",photo:"/images/destinations/sigiriya.jpg",desc:"The 5th century sky palace rising 200m from the jungle — ancient frescoes, mirror wall, and royal water gardens."},
             {name:"Yala National Park",tag:"Wildlife",tagColor:"#2D6A2D",loc:"Southern Province",time:"Feb – Jun",photo:"/images/destinations/yala.jpg",desc:"World's highest leopard density. Elephants, sloth bears, crocodiles, and over 215 bird species in the wild."},
