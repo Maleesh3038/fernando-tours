@@ -167,30 +167,72 @@ export default function HomePage() {
         input:focus,select:focus,textarea:focus{border-color:#C8860A;box-shadow:0 0 0 3px rgba(200,134,10,0.1)}
         select option{background:white;color:#1a1a2e}
         input::placeholder,textarea::placeholder{color:rgba(0,0,0,0.35)}
+        /* ── TABLET ── */
+        @media(max-width:1024px){
+          .pkg-grid{grid-template-columns:repeat(2,1fr)!important}
+          .why-grid{grid-template-columns:repeat(2,1fr)!important}
+          .testi-grid{grid-template-columns:repeat(2,1fr)!important}
+          .dest-grid-3{grid-template-columns:repeat(2,1fr)!important}
+          .gallery-prev-grid{grid-template-columns:repeat(4,1fr)!important}
+        }
+        /* ── MOBILE ── */
         @media(max-width:768px){
           .pkg-grid{grid-template-columns:1fr!important}
+          .why-grid{grid-template-columns:1fr 1fr!important}
+          .testi-grid{grid-template-columns:1fr!important}
           .contact-grid{grid-template-columns:1fr!important}
           .foot-grid{grid-template-columns:1fr 1fr!important}
-          .testi-grid{grid-template-columns:1fr!important}
-          .why-grid{grid-template-columns:1fr 1fr!important}
-          .hero-stats{gap:1.2rem!important}
+          .cult-grid-8{grid-template-columns:1fr 1fr!important}
+          .dest-grid-3{grid-template-columns:1fr!important}
+          .gallery-prev-grid{grid-template-columns:repeat(2,1fr)!important}
+          .hero-stats{gap:1rem!important;flex-wrap:wrap}
           .nav-desktop{display:none!important}
+          .hero-btns{flex-direction:column!important;align-items:flex-start!important}
+          .hero-btns a{width:100%!important;text-align:center!important}
+          .cult-grid{grid-template-columns:1fr!important}
+          .contact-grid{gap:2rem!important}
+        }
+        /* ── SMALL MOBILE ── */
+        .mobile-ham{display:none!important}
+        @media(max-width:768px){.mobile-ham{display:flex!important}}
+        @media(max-width:480px){
+          .why-grid{grid-template-columns:1fr!important}
+          .foot-grid{grid-template-columns:1fr!important}
+          .cult-grid-8{grid-template-columns:1fr!important}
+          .gallery-prev-grid{grid-template-columns:repeat(2,1fr)!important}
+          .hero-stats{gap:0.8rem!important}
         }
       `}</style>
 
       {/* ── NAV ── */}
-      <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:200,padding:"1rem 5%",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(15,30,60,0.92)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
-        <Link href="/" style={{display:"flex",alignItems:"center",gap:11,textDecoration:"none"}}>
-          <img src="/images/logo.jpg" alt="Fernando Tours" style={{height:42,width:"auto",objectFit:"contain",borderRadius:10,mixBlendMode:"lighten"}} />
-          <span className="playfair" style={{fontSize:"1.25rem",color:"white",letterSpacing:"0.3px"}}>Fernando Tours</span>
+      <nav style={{position:"fixed",top:0,left:0,right:0,zIndex:200,padding:"0.85rem 5%",display:"flex",alignItems:"center",justifyContent:"space-between",background:"rgba(15,30,60,0.95)",backdropFilter:"blur(20px)",borderBottom:"1px solid rgba(255,255,255,0.08)"}}>
+        <Link href="/" style={{display:"flex",alignItems:"center",gap:10,textDecoration:"none"}}>
+          <img src="/images/logo.jpg" alt="Fernando Tours" style={{height:38,width:"auto",objectFit:"contain",borderRadius:8,mixBlendMode:"lighten"}} />
+          <span className="playfair" style={{fontSize:"1.15rem",color:"white"}}>Fernando Tours</span>
         </Link>
-        <div className="nav-desktop" style={{display:"flex",gap:"2rem",alignItems:"center"}}>
+        <div className="nav-desktop" style={{display:"flex",gap:"1.5rem",alignItems:"center"}}>
           {[["/#packages","Packages"],["/destinations","Destinations"],["/gallery","Gallery"],["/#culture","Culture"],["/#about","About"],["/#contact","Contact"]].map(([href,label])=>(
-            <Link key={label} href={href} className="nav-link">{label}</Link>
+            <Link key={label} href={href} className="nav-link" style={{fontSize:"0.82rem"}}>{label}</Link>
           ))}
-          <Link href="/#contact" style={{background:"#FF8C00",color:"white",padding:"0.5rem 1.4rem",borderRadius:50,fontWeight:600,fontSize:"0.85rem",textDecoration:"none"}}>Book Now</Link>
+          <Link href="/#contact" style={{background:"#FF8C00",color:"white",padding:"0.45rem 1.1rem",borderRadius:50,fontWeight:600,fontSize:"0.82rem",textDecoration:"none"}}>Book Now</Link>
         </div>
+        {/* Mobile menu button */}
+        <button id="mobileMenuBtn" onClick={()=>{
+          const m = document.getElementById("mobileMenu")
+          if(m) m.style.display = m.style.display === "flex" ? "none" : "flex"
+        }} style={{display:"none",flexDirection:"column",gap:5,background:"none",border:"none",cursor:"pointer",padding:4}} className="mobile-ham">
+          <span style={{width:22,height:2,background:"white",borderRadius:2,display:"block"}} />
+          <span style={{width:22,height:2,background:"white",borderRadius:2,display:"block"}} />
+          <span style={{width:22,height:2,background:"white",borderRadius:2,display:"block"}} />
+        </button>
       </nav>
+      {/* Mobile dropdown menu */}
+      <div id="mobileMenu" style={{display:"none",flexDirection:"column",position:"fixed",top:63,left:0,right:0,background:"rgba(10,20,50,0.98)",backdropFilter:"blur(16px)",borderBottom:"1px solid rgba(255,255,255,0.1)",zIndex:199,padding:"1.5rem 5%",gap:"1.2rem"}}>
+        {[["/#packages","Packages"],["/destinations","Destinations"],["/gallery","Gallery"],["/#culture","Culture"],["/#about","About"],["/#contact","Contact"]].map(([href,label])=>(
+          <Link key={label} href={href} onClick={()=>{const m=document.getElementById("mobileMenu");if(m)m.style.display="none"}} style={{color:"rgba(255,255,255,0.85)",textDecoration:"none",fontSize:"0.95rem",fontWeight:500,padding:"0.3rem 0",borderBottom:"1px solid rgba(255,255,255,0.07)"}}>{label}</Link>
+        ))}
+        <Link href="/#contact" onClick={()=>{const m=document.getElementById("mobileMenu");if(m)m.style.display="none"}} style={{background:"#FF8C00",color:"white",padding:"0.75rem",borderRadius:10,fontWeight:700,fontSize:"0.92rem",textDecoration:"none",textAlign:"center",marginTop:"0.5rem"}}>Book Now</Link>
+      </div>
 
       {/* ── HERO ── */}
       <section style={{position:"relative",minHeight:"100vh",display:"flex",flexDirection:"column",overflow:"hidden"}}>
@@ -218,7 +260,7 @@ export default function HomePage() {
         <div id="timeBadge" style={{position:"absolute",top:"5.5rem",right:"5%",zIndex:20,background:"rgba(255,140,0,0.22)",backdropFilter:"blur(10px)",border:"1px solid rgba(255,140,0,0.55)",borderRadius:50,padding:"0.55rem 1.4rem",fontSize:"0.88rem",color:"#FFB347",fontWeight:700,letterSpacing:"0.5px",textShadow:"0 1px 8px rgba(0,0,0,0.5)"}} />
 
         {/* Hero content - bottom aligned */}
-        <div style={{position:"relative",zIndex:10,flex:1,display:"flex",alignItems:"flex-end",padding:"0 5%",paddingBottom:"5rem"}}>
+        <div style={{position:"relative",zIndex:10,flex:1,display:"flex",alignItems:"flex-end",padding:"0 5%",paddingBottom:"clamp(2rem,5vw,5rem)"}}>
           <div style={{maxWidth:620}}>
 
             <div style={{display:"inline-flex",alignItems:"center",gap:8,background:"rgba(255,140,0,0.18)",border:"1px solid rgba(255,140,0,0.45)",color:"#FFB347",padding:"0.4rem 1rem",borderRadius:50,fontSize:"0.75rem",fontWeight:600,letterSpacing:1,textTransform:"uppercase",marginBottom:"1.4rem"}}>
@@ -226,7 +268,7 @@ export default function HomePage() {
               Since 1990 · Sri Lanka
             </div>
 
-            <h1 className="playfair" style={{fontSize:"clamp(2.4rem,5vw,4.2rem)",lineHeight:1.1,marginBottom:"0.6rem",textShadow:"0 2px 30px rgba(0,0,0,0.7)",color:"white"}}>
+            <h1 className="playfair" style={{fontSize:"clamp(1.8rem,5vw,4.2rem)",lineHeight:1.12,marginBottom:"0.6rem",textShadow:"0 2px 30px rgba(0,0,0,0.7)",color:"white"}}>
               Discover the<br /><em style={{color:"#FFB347"}}>Pearl</em> of<br />the Indian Ocean
             </h1>
 
@@ -267,13 +309,13 @@ export default function HomePage() {
 
 
       {/* ── DESTINATIONS PREVIEW ── */}
-      <section style={{padding:"5.5rem 5%",background:"white"}} id="destinations">
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"white"}} id="destinations">
         <div className="reveal" style={{textAlign:"center",marginBottom:"3rem"}}>
           <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Explore Sri Lanka</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Iconic Destinations</h2>
           <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>From ancient rock fortresses to golden beaches — every corner of the island holds a story.</p>
         </div>
-        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.5rem",marginBottom:"2.5rem"}}>
+        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.5rem",marginBottom:"2.5rem"}} className="dest-grid-3">
           {[
             {name:"Sigiriya Rock Fortress",tag:"UNESCO Heritage",tagColor:"#C8860A",loc:"Central Province",time:"Dec – Apr",photo:"/images/destinations/sigiriya.jpg",desc:"The 5th century sky palace rising 200m from the jungle — ancient frescoes, mirror wall, and royal water gardens."},
             {name:"Yala National Park",tag:"Wildlife",tagColor:"#2D6A2D",loc:"Southern Province",time:"Feb – Jun",photo:"/images/destinations/yala.jpg",desc:"World's highest leopard density. Elephants, sloth bears, crocodiles, and over 215 bird species in the wild."},
@@ -315,7 +357,7 @@ export default function HomePage() {
       </section>
 
       {/* ── PACKAGES ── */}
-      <section style={{padding:"5.5rem 5%",background:"#F7F3EE"}} id="packages">
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"#F7F3EE"}} id="packages">
         <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
           <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Curated Journeys</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Tour Packages</h2>
@@ -353,13 +395,13 @@ export default function HomePage() {
       </section>
 
       {/* ── CULTURE ── */}
-      <section style={{padding:"5.5rem 5%",background:"linear-gradient(135deg,#1a3d2b 0%,#1e4d35 50%,#2d5a3d 100%)"}} id="culture">
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"linear-gradient(135deg,#1a3d2b 0%,#1e4d35 50%,#2d5a3d 100%)"}} id="culture">
         <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
           <span style={{color:"#90EE90",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Living Heritage</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"white"}}>Experience Sri Lankan Culture</h2>
           <p style={{color:"rgba(255,255,255,0.78)",fontSize:"0.93rem",maxWidth:560,margin:"0 auto",lineHeight:1.75}}>Sri Lanka is not just a destination — it&apos;s a feeling. Ancient temples, thunderous Kandyan drums, the scent of cinnamon, and the warmth of its people make every journey unforgettable.</p>
         </div>
-        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1.2rem",marginBottom:"3rem"}}>
+        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1.2rem",marginBottom:"3rem"}} className="cult-grid-8">
           {[
             {icon:"🥁",title:"Kandyan Dance",desc:"The ancient ritual dance of the hill kingdom — vibrant costumes, rhythmic drums, and fire torch performances dating back 2,500 years."},
             {icon:"🍛",title:"Ceylon Cuisine",desc:"Aromatic rice & curry, hoppers, kottu roti, and fresh seafood — Sri Lankan food is a spice-laden journey in itself."},
@@ -387,7 +429,7 @@ export default function HomePage() {
       </section>
 
       {/* ── WHY US ── */}
-      <section style={{padding:"5.5rem 5%",background:"#F7F3EE"}} id="about">
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"#F7F3EE"}} id="about">
         <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
           <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>The Fernando Difference</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Why Travelers Choose Us</h2>
@@ -405,13 +447,13 @@ export default function HomePage() {
 
 
       {/* ── GALLERY PREVIEW ── */}
-      <section style={{padding:"5.5rem 5%",background:"#F7F3EE"}}>
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"#F7F3EE"}}>
         <div className="reveal" style={{textAlign:"center",marginBottom:"3rem"}}>
           <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Real Memories</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>From Our Travelers</h2>
           <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>Real photos from real journeys — our customers exploring the Pearl of the Indian Ocean.</p>
         </div>
-        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"0.8rem",marginBottom:"2.5rem"}}>
+        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"0.8rem",marginBottom:"2.5rem"}} className="gallery-prev-grid">
           {[1,2,3,4,5,6,7,8].map(n=>(
             <div key={n} style={{borderRadius:10,overflow:"hidden",aspectRatio:"1/1",position:"relative",cursor:"pointer",border:"1px solid rgba(255,255,255,0.07)"}}
               onClick={()=>window.location.href="/gallery"}>
@@ -434,7 +476,7 @@ export default function HomePage() {
       </section>
 
       {/* ── REVIEWS ── */}
-      <section style={{padding:"5.5rem 5%",background:"white"}}>
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"white"}}>
         <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
           <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Guest Stories</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>What Our Travelers Say</h2>
@@ -513,7 +555,7 @@ export default function HomePage() {
       </section>
 
       {/* ── CONTACT ── */}
-      <section style={{padding:"5.5rem 5%",background:"linear-gradient(135deg,#1a3a5c 0%,#1e4a70 50%,#1a3d5c 100%)"}} id="contact">
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"linear-gradient(135deg,#1a3a5c 0%,#1e4a70 50%,#1a3d5c 100%)"}} id="contact">
         <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
           <span style={{color:"#90CAF9",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Let&apos;s Plan Together</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"white"}}>Start Your Journey</h2>
