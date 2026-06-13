@@ -401,7 +401,7 @@ export default function HomePage() {
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"white"}}>Experience Sri Lankan Culture</h2>
           <p style={{color:"rgba(255,255,255,0.78)",fontSize:"0.93rem",maxWidth:560,margin:"0 auto",lineHeight:1.75}}>Sri Lanka is not just a destination — it&apos;s a feeling. Ancient temples, thunderous Kandyan drums, the scent of cinnamon, and the warmth of its people make every journey unforgettable.</p>
         </div>
-        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1.2rem",marginBottom:"3rem"}} className="cult-grid-8">
+        <div className="reveal cult-grid-8" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1.2rem",marginBottom:"3rem"}}>
           {[
             {icon:"🥁",title:"Kandyan Dance",desc:"The ancient ritual dance of the hill kingdom — vibrant costumes, rhythmic drums, and fire torch performances dating back 2,500 years."},
             {icon:"🍛",title:"Ceylon Cuisine",desc:"Aromatic rice & curry, hoppers, kottu roti, and fresh seafood — Sri Lankan food is a spice-laden journey in itself."},
@@ -453,7 +453,7 @@ export default function HomePage() {
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>From Our Travelers</h2>
           <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>Real photos from real journeys — our customers exploring the Pearl of the Indian Ocean.</p>
         </div>
-        <div className="reveal" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"0.8rem",marginBottom:"2.5rem"}} className="gallery-prev-grid">
+        <div className="reveal gallery-prev-grid" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"0.8rem",marginBottom:"2.5rem"}}>
           {[1,2,3,4,5,6,7,8].map(n=>(
             <div key={n} style={{borderRadius:10,overflow:"hidden",aspectRatio:"1/1",position:"relative",cursor:"pointer",border:"1px solid rgba(255,255,255,0.07)"}}
               onClick={()=>window.location.href="/gallery"}>
