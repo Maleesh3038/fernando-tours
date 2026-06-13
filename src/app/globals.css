@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #0D1B3E;
+  color: #F8FAFC;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, rgba(255, 140, 0, 0.12), transparent 32%),
+    linear-gradient(180deg, #0d1b3e 0%, #041025 100%);
+  color: #f8fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: 'Playfair Display', ui-serif, Georgia, 'Times New Roman', serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(255, 140, 0, 0.35);
+  color: #fff;
+}
+
+button, input, textarea {
+  font: inherit;
+}
+
+section {
+  padding: 4rem 1.5rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.text-glow {
+  text-shadow: 0 0 18px rgba(255, 140, 0, 0.32), 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.bg-panel {
+  background: rgba(11, 24, 52, 0.88);
+  border: 1px solid rgba(255, 140, 0, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-[#FF8C00] px-6 py-3 font-semibold text-slate-950 shadow-[0_20px_60px_rgba(255,140,0,0.24)];
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center rounded-full border border-[#FF8C00] px-6 py-3 font-semibold text-white transition hover:bg-[#FF8C00] hover:text-slate-950;
+}
+
+.card-glow {
+  background: rgba(7, 18, 40, 0.9);
+  border: 1px solid rgba(255, 140, 0, 0.16);
+  box-shadow: 0 28px 45px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+
+@keyframes starPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.8); }
+}
+
+@keyframes svgGlow {
+  0%, 100% { opacity: 0.92; }
+  50% { opacity: 0.7; }
+}
+
+.hero-star {
+  fill: rgba(255, 255, 255, 0.95);
+  animation: starPulse 4s ease-in-out infinite;
+}
+
+.hero-cloud {
+  opacity: 0.7;
+  animation: float 18s ease-in-out infinite;
+}
+
+.hero-sun {
+  filter: drop-shadow(0 0 24px rgba(255, 140, 0, 0.55));
+  animation: svgGlow 6s ease-in-out infinite;
+}
+
+.input-field {
+  @apply w-full rounded-2xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-white outline-none transition focus:border-[#FF8C00] focus:ring-2 focus:ring-[#FF8C00]/30;
+}
+
+textarea.input-field {
+  min-height: 180px;
+  resize: vertical;
+}
