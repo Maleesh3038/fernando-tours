@@ -451,6 +451,123 @@ export default function HomePage() {
       </section>
 
 
+      {/* ── CULTURE STRIP ── */}
+      <div id="strip" style={{display:"flex",alignItems:"center",justifyContent:"center",background:"#1a1a2e",borderTop:"none",borderBottom:"none",overflowX:"auto"}}>
+        {[{icon:"🐘",label:"Wildlife Safaris"},{icon:"🏛️",label:"Ancient Kingdoms"},{icon:"🌊",label:"Pristine Beaches"},{icon:"☕",label:"Tea Highlands"},{icon:"🪷",label:"Sacred Temples"},{icon:"🍛",label:"Ceylon Cuisine"}].map(({icon,label})=>(
+          <div key={label} className="ci" style={{display:"flex",alignItems:"center",gap:9,padding:"0.85rem 1.8rem",borderRight:"1px solid rgba(255,255,255,0.07)",flexShrink:0}}>
+            <span style={{fontSize:"1.2rem"}}>{icon}</span>
+            <span style={{fontSize:"0.75rem",fontWeight:600,letterSpacing:"0.8px",textTransform:"uppercase",color:"rgba(255,220,180,0.95)"}}>{label}</span>
+          </div>
+        ))}
+      </div>
+
+      {/* ── CULTURE ── */}
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"linear-gradient(135deg,#1a3d2b 0%,#1e4d35 50%,#2d5a3d 100%)"}} id="culture">
+        <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
+          <span style={{color:"#90EE90",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Living Heritage</span>
+          <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"white"}}>Experience Sri Lankan Culture</h2>
+          <p style={{color:"rgba(255,255,255,0.78)",fontSize:"0.93rem",maxWidth:560,margin:"0 auto",lineHeight:1.75}}>Sri Lanka is not just a destination — it&apos;s a feeling. Ancient temples, thunderous Kandyan drums, the scent of cinnamon, and the warmth of its people make every journey unforgettable.</p>
+        </div>
+        <div className="reveal cult-grid-8" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"1.2rem",marginBottom:"3rem"}}>
+          {[{icon:"🥁",title:"Kandyan Dance",desc:"The ancient ritual dance of the hill kingdom — vibrant costumes, rhythmic drums, and fire torch performances dating back 2,500 years."},{icon:"🍛",title:"Ceylon Cuisine",desc:"Aromatic rice & curry, hoppers, kottu roti, and fresh seafood — Sri Lankan food is a spice-laden journey in itself."},{icon:"🪷",title:"Buddhist Rituals",desc:"Join the morning puja at ancient stupas, offer lotus flowers, and experience the serene spirituality of Buddhist Sri Lanka."},{icon:"🎪",title:"Perahera Festival",desc:"The Esala Perahera in Kandy — one of Asia's greatest spectacles, with elephants, dancers, and fire acrobats filling the streets."},{icon:"🌿",title:"Ayurveda",desc:"Sri Lanka's 3,000-year-old healing tradition — herbal treatments, oil massages, and wellness rituals using native plants."},{icon:"☕",title:"Tea Ceremony",desc:"Walk the emerald estates of Nuwara Eliya, meet the tea pickers, and taste a fresh brew straight from the factory floor."},{icon:"🎨",title:"Batik & Crafts",desc:"Learn the art of wax-resist batik fabric dyeing — a tradition passed down through generations of Sri Lankan artisans."},{icon:"🐘",title:"Temple Elephants",desc:"Witness the majestic ceremonial elephants of Kandy and Pinnawala — adorned in gold, revered across the island for centuries."}].map(({icon,title,desc})=>(
+            <div key={title} style={{background:"rgba(255,255,255,0.1)",border:"1px solid rgba(255,255,255,0.15)",borderRadius:14,padding:"1.5rem",transition:"all .3s",backdropFilter:"blur(10px)"}}
+              onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform="translateY(-4px)";(e.currentTarget as HTMLElement).style.borderColor="rgba(255,255,255,0.3)"}}
+              onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform="translateY(0)";(e.currentTarget as HTMLElement).style.borderColor="rgba(255,255,255,0.15)"}}>
+              <div style={{fontSize:"2rem",marginBottom:"0.8rem"}}>{icon}</div>
+              <div style={{fontWeight:600,fontSize:"0.95rem",marginBottom:"0.5rem",color:"white"}}>{title}</div>
+              <p style={{color:"rgba(255,255,255,0.75)",fontSize:"0.82rem",lineHeight:1.65}}>{desc}</p>
+            </div>
+          ))}
+        </div>
+        <div style={{textAlign:"center"}}>
+          <Link href="/destinations" style={{background:"transparent",color:"rgba(255,255,255,0.85)",padding:"0.82rem 2.2rem",borderRadius:50,fontWeight:600,fontSize:"0.93rem",textDecoration:"none",border:"1.5px solid rgba(255,255,255,0.35)",display:"inline-block"}}>
+            Explore Destinations →
+          </Link>
+        </div>
+      </section>
+
+      {/* ── GALLERY PREVIEW ── */}
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"#F7F3EE"}}>
+        <div className="reveal" style={{textAlign:"center",marginBottom:"3rem"}}>
+          <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Real Memories</span>
+          <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>From Our Travelers</h2>
+          <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>Real photos from real journeys — our customers exploring the Pearl of the Indian Ocean.</p>
+        </div>
+        <div className="reveal gallery-prev-grid" style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:"0.8rem",marginBottom:"2.5rem"}}>
+          {[1,2,3,4,5,6,7,8].map(n=>(
+            <div key={n} style={{borderRadius:10,overflow:"hidden",aspectRatio:"1/1",position:"relative",cursor:"pointer",border:"1px solid rgba(255,255,255,0.07)"}}
+              onClick={()=>window.location.href="/gallery"}>
+              <img src={`/images/gallery/gallery-${n}.jpg`} alt={`Memory ${n}`} style={{width:"100%",height:"100%",objectFit:"cover",transition:"transform .5s",display:"block"}}
+                onMouseEnter={e=>(e.currentTarget as HTMLElement).style.transform="scale(1.08)"}
+                onMouseLeave={e=>(e.currentTarget as HTMLElement).style.transform="scale(1)"}
+              />
+            </div>
+          ))}
+        </div>
+        <div style={{textAlign:"center"}}>
+          <Link href="/gallery" style={{background:"rgba(200,134,10,0.14)",border:"1px solid rgba(200,134,10,0.4)",color:"#C8860A",padding:"0.82rem 2.2rem",borderRadius:50,fontWeight:600,fontSize:"0.93rem",textDecoration:"none",display:"inline-block"}}>
+            View All 20 Photos →
+          </Link>
+        </div>
+      </section>
+
+      {/* ── WHY US ── */}
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"white"}} id="about">
+        <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
+          <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>The Fernando Difference</span>
+          <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Why Travelers Choose Us</h2>
+        </div>
+        <div className="why-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.3rem"}}>
+          {[["🏆","35 Years Experience","Deep local knowledge built over three decades of operating in Sri Lanka."],["🧭","Expert Local Guides","Passionate Sri Lankans who know every hidden gem on the island."],["🛡️","Fully Licensed","Licensed by Sri Lanka Tourism Development Authority. Safe and reliable."],["✨","Tailor-Made","Every itinerary crafted around your interests, pace, and travel style."],["💬","24/7 Support","Always reachable before, during, and after your trip."],["🌱","Responsible Tourism","We give back to local communities and protect Sri Lanka environments."]].map(([ico,title,desc])=>(
+            <div key={title} className="why-card">
+              <div style={{width:58,height:58,margin:"0 auto 1rem",background:"rgba(200,134,10,0.11)",borderRadius:"50%",display:"flex",alignItems:"center",justifyContent:"center",fontSize:"1.55rem"}}>{ico}</div>
+              <div style={{fontWeight:600,marginBottom:"0.5rem",color:"#1a1a2e"}}>{title}</div>
+              <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.82rem",lineHeight:1.65}}>{desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── REVIEWS ── */}
+      <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"white"}}>
+        <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
+          <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Guest Stories</span>
+          <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>What Our Travelers Say</h2>
+          <p style={{color:"rgba(26,26,46,0.55)",fontSize:"0.9rem",marginBottom:"1.5rem"}}>Real reviews from real travelers</p>
+          <a href="https://www.tripadvisor.com/Attraction_Review-g304134-d13385779-Reviews-Fernando_Tours-Hikkaduwa_Galle_District_Southern_Province.html" target="_blank" rel="noopener noreferrer"
+            style={{display:"inline-flex",alignItems:"center",gap:10,background:"rgba(0,170,82,0.12)",border:"1.5px solid rgba(0,170,82,0.35)",borderRadius:50,padding:"0.6rem 1.4rem",textDecoration:"none",marginBottom:"0.5rem"}}>
+            <span style={{color:"#00AA52",fontWeight:700,fontSize:"0.88rem"}}>⭐ See All Reviews on TripAdvisor ↗</span>
+          </a>
+        </div>
+        <div className="testi-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.3rem",marginBottom:"2.5rem"}}>
+          {[{initials:"SR",name:"Sarah & Ryan Mitchell",country:"🇬🇧 United Kingdom",stars:5,date:"March 2024",tour:"Classic Sri Lanka Journey",text:"Absolutely incredible experience from start to finish! Our guide was knowledgeable, funny, and went above and beyond. Sigiriya at sunrise, the Yala safari, the tea country — every day was magical."},{initials:"JK",name:"Johann K.",country:"🇩🇪 Germany",stars:5,date:"February 2024",tour:"Nature + Culture Experience",text:"3 leopards in one day at Yala — I still can not believe it! The private jeep and expert guide made all the difference. Fernando Tours organized everything perfectly."},{initials:"AP",name:"Anika P.",country:"🇺🇸 United States",stars:5,date:"January 2024",tour:"Sri Lanka Highlights Escape",text:"Our honeymoon was beyond perfect. Private pool villa, sunset whale watching, candlelit dinner on the beach — Fernando Tours thought of everything. Worth every penny!"}].map((t)=>(
+            <div key={t.name} className="testi-card">
+              <div style={{position:"absolute",top:"1.2rem",right:"1.4rem",fontFamily:"'Playfair Display',serif",fontSize:"3rem",color:"rgba(0,170,82,0.1)",lineHeight:1}}>&ldquo;</div>
+              <div style={{display:"flex",gap:2,marginBottom:"0.7rem"}}>{Array(t.stars).fill(0).map((_,i)=><span key={i} style={{color:"#00AA52",fontSize:"0.9rem"}}>★</span>)}</div>
+              <div style={{display:"inline-block",background:"rgba(0,170,82,0.1)",border:"1px solid rgba(0,170,82,0.25)",color:"#00cc66",fontSize:"0.68rem",fontWeight:600,padding:"0.2rem 0.6rem",borderRadius:50,marginBottom:"0.8rem"}}>{t.tour}</div>
+              <p style={{color:"rgba(26,26,46,0.78)",fontSize:"0.87rem",lineHeight:1.72,fontStyle:"italic",marginBottom:"1.2rem"}}>{t.text}</p>
+              <div style={{display:"flex",alignItems:"center",justifyContent:"space-between"}}>
+                <div style={{display:"flex",alignItems:"center",gap:10}}>
+                  <div style={{width:38,height:38,borderRadius:"50%",background:"rgba(0,170,82,0.2)",border:"1.5px solid rgba(0,170,82,0.35)",display:"flex",alignItems:"center",justifyContent:"center",fontWeight:700,fontSize:"0.82rem",color:"#00cc66",flexShrink:0}}>{t.initials}</div>
+                  <div>
+                    <div style={{fontWeight:600,fontSize:"0.85rem",color:"#1a1a2e"}}>{t.name}</div>
+                    <div style={{color:"rgba(26,26,46,0.5)",fontSize:"0.72rem"}}>{t.country}</div>
+                  </div>
+                </div>
+                <div style={{color:"rgba(26,26,46,0.35)",fontSize:"0.72rem"}}>{t.date}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div style={{textAlign:"center"}}>
+          <a href="https://www.tripadvisor.com/Attraction_Review-g304134-d13385779-Reviews-Fernando_Tours-Hikkaduwa_Galle_District_Southern_Province.html" target="_blank" rel="noopener noreferrer"
+            style={{display:"inline-flex",alignItems:"center",gap:10,background:"#00AA52",color:"white",padding:"0.85rem 2.2rem",borderRadius:50,fontWeight:700,fontSize:"0.93rem",textDecoration:"none"}}>
+            Read More Reviews on TripAdvisor
+          </a>
+        </div>
+      </section>
+
+
       {/* ── CONTACT ── */}
       <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"linear-gradient(135deg,#1a3a5c 0%,#1e4a70 50%,#1a3d5c 100%)"}} id="contact">
         <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
