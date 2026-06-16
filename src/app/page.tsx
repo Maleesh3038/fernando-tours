@@ -396,50 +396,60 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PACKAGES ── */}
+            {/* ── PACKAGES ── */}
       <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"#F7F3EE"}} id="packages">
-        <div className="reveal" style={{textAlign:"center",marginBottom:"3.5rem"}}>
+        <div className="reveal" style={{textAlign:"center",marginBottom:"3rem"}}>
           <span style={{color:"#C8860A",fontSize:"0.74rem",fontWeight:700,letterSpacing:"2.5px",textTransform:"uppercase",display:"block",marginBottom:"0.9rem"}}>Curated Journeys</span>
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Tour Packages</h2>
-          <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>Thoughtfully designed itineraries for every kind of traveler.</p>
+          <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>All tours include private vehicle, English-speaking guide, and all transfers. Click to view full itinerary.</p>
         </div>
-        <div className="pkg-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"1.5rem"}}>
-          {packages.map((pkg)=>(
-            <div key={pkg.id} className={`pkg-card${pkg.featured?" featured":""}`} style={{position:"relative",display:"flex",flexDirection:"column"}}>
-              {pkg.featured&&<span style={{position:"absolute",top:"1.1rem",right:"1.1rem",background:"#FF8C00",color:"white",fontSize:"0.67rem",fontWeight:700,padding:"0.26rem 0.85rem",borderRadius:50,zIndex:1}}>Most Popular</span>}
-              {/* Header */}
-              <div style={{display:"flex",alignItems:"flex-start",gap:"1rem",marginBottom:"1rem"}}>
-                <span style={{fontSize:"2rem",flexShrink:0}}>{pkg.icon}</span>
-                <div>
-                  <div className="playfair" style={{fontSize:"1.2rem",color:"#1a1a2e",marginBottom:"0.2rem"}}>{pkg.name}</div>
-                  <div style={{color:"#C8860A",fontSize:"0.8rem",fontWeight:700}}>{pkg.duration}</div>
-                  <div style={{color:"rgba(26,26,46,0.5)",fontSize:"0.72rem",marginTop:2}}>✦ Get in touch for pricing</div>
+        <div className="pkg-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"1.5rem",marginBottom:"2.5rem"}}>
+          {[
+            {id:1,name:"Sri Lanka Highlights Escape",duration:"3 Nights / 4 Days",bestFor:"Short holiday, first-time visitors",featured:false,days:["Airport → Pinnawala Elephant Orphanage → Kandy","Temple of the Tooth → Tea Factory → Ella","Nine Arches Bridge → Yala Evening Safari","Udawalawe → Airport / Hotel Drop"]},
+            {id:2,name:"Nature + Culture Experience",duration:"4 Nights / 5 Days",bestFor:"Balanced experience",featured:false,days:["Dambulla Cave Temple → Sigiriya","Sigiriya Rock Fortress → Kandy","Temple of the Tooth → Tea Factory → Ella","Nine Arches Bridge → Yala Evening Safari","Udawalawe → Airport / Hotel Drop"]},
+            {id:3,name:"Classic Sri Lanka Journey",duration:"5 Nights / 6 Days",bestFor:"Most popular full experience",featured:true,days:["Dambulla Cave Temple → Sigiriya","Sigiriya Rock Fortress → Polonnaruwa","Kandy → Temple of the Tooth","Tea Factory → Ramboda Falls → Ella","Nine Arches Bridge → Yala Evening Safari","Udawalawe → Beach → Departure"]},
+            {id:4,name:"Ultimate Sri Lanka Discovery",duration:"6 Nights / 7 Days",bestFor:"Full island experience",featured:false,days:["Airport → Negombo","Dambulla → Sigiriya","Sigiriya → Polonnaruwa","Kandy → Temple of the Tooth","Tea Factory → Ella","Nine Arches Bridge → Yala Safari","Udawalawe → Beach → Departure"]},
+          ].map((pkg)=>(
+            <Link key={pkg.id} href="/packages" style={{textDecoration:"none",display:"block",background:"white",borderRadius:20,border:`1.5px solid ${pkg.featured?"rgba(200,134,10,0.5)":"rgba(0,0,0,0.07)"}`,boxShadow:pkg.featured?"0 4px 24px rgba(200,134,10,0.12)":"0 2px 16px rgba(0,0,0,0.06)",overflow:"hidden",transition:"all .3s"}}
+              onMouseEnter={e=>{(e.currentTarget as HTMLElement).style.transform="translateY(-5px)";(e.currentTarget as HTMLElement).style.boxShadow="0 16px 40px rgba(0,0,0,0.12)"}}
+              onMouseLeave={e=>{(e.currentTarget as HTMLElement).style.transform="translateY(0)";(e.currentTarget as HTMLElement).style.boxShadow=pkg.featured?"0 4px 24px rgba(200,134,10,0.12)":"0 2px 16px rgba(0,0,0,0.06)"}}>
+              {/* Green header */}
+              <div style={{background:"linear-gradient(135deg,#1a3d2b,#2d6a4f)",padding:"1.4rem 1.6rem",position:"relative"}}>
+                {pkg.featured && <span style={{position:"absolute",top:"1rem",right:"1rem",background:"#FF8C00",color:"white",fontSize:"0.67rem",fontWeight:700,padding:"0.25rem 0.75rem",borderRadius:50}}>Most Popular</span>}
+                <span style={{fontSize:"1.8rem",display:"block",marginBottom:"0.5rem"}}>🌿</span>
+                <div className="playfair" style={{fontSize:"1.2rem",color:"white",marginBottom:"0.3rem"}}>{pkg.name}</div>
+                <div style={{color:"rgba(255,255,255,0.72)",fontSize:"0.78rem",marginBottom:"0.5rem"}}>⏱ {pkg.duration}</div>
+                <div style={{display:"inline-flex",alignItems:"center",gap:5,background:"rgba(255,255,255,0.15)",borderRadius:50,padding:"0.22rem 0.75rem"}}>
+                  <span style={{color:"#90EE90",fontSize:"0.68rem",fontWeight:700}}>✦</span>
+                  <span style={{color:"rgba(255,255,255,0.88)",fontSize:"0.68rem"}}>Best for: {pkg.bestFor}</span>
                 </div>
               </div>
-              <p style={{color:"rgba(26,26,46,0.62)",fontSize:"0.83rem",lineHeight:1.62,marginBottom:"1.1rem"}}>{pkg.desc}</p>
-              
-            </div>
+              {/* Card body */}
+              <div style={{padding:"1.3rem 1.6rem"}}>
+                <div style={{marginBottom:"1rem"}}>
+                  {pkg.days.slice(0,3).map((d,i)=>(
+                    <div key={i} style={{display:"flex",alignItems:"center",gap:8,padding:"0.38rem 0",borderBottom:"1px solid rgba(0,0,0,0.05)"}}>
+                      <span style={{background:"#C8860A",color:"white",fontSize:"0.62rem",fontWeight:700,padding:"0.15rem 0.5rem",borderRadius:50,flexShrink:0}}>Day {i+1}</span>
+                      <span style={{color:"rgba(26,26,46,0.68)",fontSize:"0.8rem"}}>{d}</span>
+                    </div>
+                  ))}
+                  {pkg.days.length > 3 && <div style={{color:"#C8860A",fontSize:"0.75rem",fontWeight:600,padding:"0.38rem 0"}}>+ {pkg.days.length-3} more days...</div>}
+                </div>
+                <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",padding:"0.6rem 0.9rem",background:"rgba(200,134,10,0.08)",borderRadius:8,border:"1px solid rgba(200,134,10,0.2)"}}>
+                  <span style={{color:"#C8860A",fontSize:"0.82rem",fontWeight:600}}>View Full Itinerary</span>
+                  <span style={{color:"#C8860A",fontSize:"0.9rem"}}>→</span>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
-
-        {/* TripAdvisor CTA */}
         <div style={{textAlign:"center"}}>
-          <a href="https://www.tripadvisor.com/Attraction_Review-g304134-d13385779-Reviews-Fernando_Tours-Hikkaduwa_Galle_District_Southern_Province.html"
-            target="_blank" rel="noopener noreferrer"
-            style={{display:"inline-flex",alignItems:"center",gap:10,background:"#00AA52",color:"white",padding:"0.85rem 2.2rem",borderRadius:50,fontWeight:700,fontSize:"0.93rem",textDecoration:"none",boxShadow:"0 4px 20px rgba(0,170,82,0.35)",transition:"all .25s"}}
-            onMouseEnter={e=>(e.currentTarget as HTMLElement).style.background="#009944"}
-            onMouseLeave={e=>(e.currentTarget as HTMLElement).style.background="#00AA52"}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="12" r="12" fill="white" fillOpacity="0.2"/>
-              <circle cx="8.5" cy="12" r="3" fill="white"/>
-              <circle cx="15.5" cy="12" r="3" fill="white"/>
-              <circle cx="8.5" cy="12" r="1.5" fill="#00AA52"/>
-              <circle cx="15.5" cy="12" r="1.5" fill="#00AA52"/>
-            </svg>
-            Read More Reviews on TripAdvisor
-          </a>
+          <Link href="/packages" style={{background:"#C8860A",color:"white",padding:"0.85rem 2.5rem",borderRadius:50,fontWeight:700,fontSize:"0.93rem",textDecoration:"none",boxShadow:"0 4px 16px rgba(200,134,10,0.3)",display:"inline-block"}}>
+            View All Packages & Itineraries →
+          </Link>
         </div>
       </section>
+
 
       {/* ── CONTACT ── */}
       <section style={{padding:"clamp(3rem,6vw,5.5rem) 5%",background:"linear-gradient(135deg,#1a3a5c 0%,#1e4a70 50%,#1a3d5c 100%)"}} id="contact">
