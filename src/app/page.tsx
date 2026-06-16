@@ -3,12 +3,107 @@ import { useEffect, useRef } from "react"
 import Link from "next/link"
 
 const packages = [
-  { id: 1, icon: "🏝️", name: "Beach & Leisure", duration: "5 Days · 4 Nights", price: 450, featured: false, desc: "Golden shores, whale watching, and coastal culture from Mirissa to Trincomalee.", highlights: ["Blue whale watching cruise", "Unawatuna snorkeling", "Galle Fort guided walk", "All transfers included"] },
-  { id: 2, icon: "🗺️", name: "Classic Sri Lanka", duration: "10 Days · 9 Nights", price: 890, featured: true, desc: "The ultimate island experience — ancient cities, wildlife, highlands, and beaches.", highlights: ["Sigiriya & Dambulla Cave Temple", "Yala National Park safari", "Kandy & Tea Estate tour", "Ella Nine Arch Bridge", "Premium accommodation"] },
-  { id: 3, icon: "🐘", name: "Wildlife Expedition", duration: "7 Days · 6 Nights", price: 680, featured: false, desc: "Leopards, elephants, and hundreds of bird species across Sri Lanka's finest parks.", highlights: ["Yala & Udawalawe safaris", "Minneriya elephant gathering", "Expert naturalist guide", "Wilpattu forest drive"] },
-  { id: 4, icon: "🏛️", name: "Cultural Triangle", duration: "6 Days · 5 Nights", price: 520, featured: false, desc: "Ancient kingdoms and UNESCO wonders through the legendary Cultural Triangle.", highlights: ["Anuradhapura ancient city", "Polonnaruwa UNESCO site", "Traditional Kandyan dance", "Spice garden & ayurveda"] },
-  { id: 5, icon: "💍", name: "Honeymoon Special", duration: "8 Days · 7 Nights", price: null, featured: false, desc: "Romance, luxury and privacy — pool villas, candlelit dinners, and couple experiences.", highlights: ["Private pool villa stays", "Sunset whale watching", "Couples spa & ayurveda", "Private guided experiences"] },
-  { id: 6, icon: "🎒", name: "Custom Tour", duration: "Your Schedule", price: null, featured: false, desc: "Tailor-made itineraries crafted around your interests, timeline, and budget.", highlights: ["Fully personalized itinerary", "Private air-conditioned vehicle", "English-speaking expert guide", "Flexible date changes"] },
+  {
+    id: 1, icon: "🌿", name: "Sri Lanka Highlights Escape", duration: "3 Nights / 4 Days", price: null, featured: false,
+    desc: "Perfect for first-time visitors and short holidays. Kandy, Ella, Yala — the best of Sri Lanka in 4 days.",
+    highlights: [
+      "Day 1: Airport → Pinnawala Elephant Orphanage → Spice Garden → Kandy Cultural Show",
+      "Day 2: Temple of the Tooth → Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 3: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 4: Udawalawe Elephant Transit Home → Airport / Hotel Drop"
+    ]
+  },
+  {
+    id: 2, icon: "🌿", name: "Nature + Culture Experience", duration: "4 Nights / 5 Days", price: null, featured: false,
+    desc: "A balanced mix of ancient culture, wildlife, and scenic highlands. Sigiriya, Kandy, Ella & Yala.",
+    highlights: [
+      "Day 1: Airport → Dambulla Cave Temple → Village Tour → Sigiriya",
+      "Day 2: Sigiriya Rock Fortress → Kandy → Evening Cultural Show",
+      "Day 3: Temple of the Tooth → Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 4: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 5: Udawalawe Elephant Transit Home → Airport / Hotel Drop"
+    ]
+  },
+  {
+    id: 3, icon: "🌿", name: "Classic Sri Lanka Journey", duration: "5 Nights / 6 Days", price: null, featured: true,
+    desc: "Our most popular tour! The full Sri Lanka experience — ruins, highlands, wildlife, and beaches.",
+    highlights: [
+      "Day 1: Airport → Dambulla Cave Temple → Village Tour → Sigiriya",
+      "Day 2: Sigiriya Rock Fortress → Polonnaruwa Ancient Ruins",
+      "Day 3: Travel to Kandy → Temple of the Tooth → Evening Cultural Show",
+      "Day 4: Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 5: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 6: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
+    ]
+  },
+  {
+    id: 4, icon: "🌿", name: "Ultimate Sri Lanka Discovery", duration: "6 Nights / 7 Days", price: null, featured: false,
+    desc: "The complete island experience with an extra day for late arrivals. Perfect for those who want it all.",
+    highlights: [
+      "Day 1: Airport → Negombo (Late Evening Arrivals)",
+      "Day 2: Dambulla Cave Temple → Village Tour → Sigiriya",
+      "Day 3: Sigiriya Rock Fortress → Polonnaruwa Ancient Ruins",
+      "Day 4: Kandy → Temple of the Tooth → Evening Cultural Show",
+      "Day 5: Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 6: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 7: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
+    ]
+  },
+]onst packages = [
+  {
+    id: 1, icon: "🌿", name: "Sri Lanka Highlights Escape", duration: "3 Nights / 4 Days", price: 320, featured: false,
+    bestFor: "Short holiday, first-time visitors",
+    desc: "A perfect short escape covering Kandy, Ella, and Yala — ideal for first-time visitors to Sri Lanka.",
+    highlights: ["Pinnawala Elephant Orphanage", "Temple of the Sacred Tooth Relic", "Nine Arches Bridge", "Yala National Park Safari", "Udawalawe Elephant Transit Home"],
+    itinerary: [
+      { day: "Day 1", title: "Airport → Kandy", items: ["Pickup from Airport / Hotel", "Pinnawala Elephant Orphanage", "Spice Garden in Mawanella", "Evening cultural show", "Overnight in Kandy"] },
+      { day: "Day 2", title: "Kandy → Ella", items: ["Temple of the Sacred Tooth Relic", "Ambuluwawa Tower", "Tea factory & plantation visit", "Ramboda Falls", "Overnight in Ella"] },
+      { day: "Day 3", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala National Park", "Overnight in Yala"] },
+      { day: "Day 4", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    ]
+  },
+  {
+    id: 2, icon: "🌿", name: "Nature + Culture Experience", duration: "4 Nights / 5 Days", price: 420, featured: false,
+    bestFor: "Balanced experience",
+    desc: "The perfect balance of ancient culture, stunning highlands, and thrilling wildlife across Sri Lanka.",
+    highlights: ["Dambulla Cave Temple", "Sigiriya Rock Fortress", "Temple of the Sacred Tooth Relic", "Yala Evening Safari", "Tea Plantation Tour"],
+    itinerary: [
+      { day: "Day 1", title: "Airport → Sigiriya / Dambulla", items: ["Dambulla Cave Temple", "Village tour experience", "Overnight in Sigiriya"] },
+      { day: "Day 2", title: "Sigiriya → Kandy", items: ["Climb Sigiriya Rock Fortress", "Travel to Kandy", "Evening cultural show", "Overnight in Kandy"] },
+      { day: "Day 3", title: "Kandy → Ella", items: ["Temple of the Sacred Tooth Relic", "Ambuluwawa Tower", "Tea factory & plantation", "Ramboda Falls", "Overnight in Ella"] },
+      { day: "Day 4", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala", "Overnight in Yala"] },
+      { day: "Day 5", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    ]
+  },
+  {
+    id: 3, icon: "🌿", name: "Classic Sri Lanka Journey", duration: "5 Nights / 6 Days", price: 520, featured: true,
+    bestFor: "Most popular full experience",
+    desc: "Our most popular tour — the complete Sri Lanka experience from ancient kingdoms to misty highlands and wild safari.",
+    highlights: ["Dambulla Cave Temple", "Sigiriya Rock Fortress", "Polonnaruwa Ancient City", "Temple of the Sacred Tooth Relic", "Ella Nine Arches Bridge", "Yala National Park Safari"],
+    itinerary: [
+      { day: "Day 1", title: "Airport → Sigiriya", items: ["Dambulla Cave Temple", "Village tour experience", "Overnight in Sigiriya"] },
+      { day: "Day 2", title: "Sigiriya + Polonnaruwa", items: ["Climb Sigiriya Rock Fortress", "Explore Polonnaruwa ancient city", "Overnight in Sigiriya"] },
+      { day: "Day 3", title: "Sigiriya → Kandy", items: ["Travel to Kandy", "Temple of the Sacred Tooth Relic", "Evening cultural show", "Overnight in Kandy"] },
+      { day: "Day 4", title: "Kandy → Ella", items: ["Ambuluwawa Tower", "Tea factory & plantation", "Ramboda Falls", "Overnight in Ella"] },
+      { day: "Day 5", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala", "Overnight in Yala"] },
+      { day: "Day 6", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    ]
+  },
+  {
+    id: 4, icon: "🌿", name: "Ultimate Sri Lanka Discovery", duration: "6 Nights / 7 Days", price: 620, featured: false,
+    bestFor: "Full island experience",
+    desc: "The ultimate Sri Lanka adventure — covering every iconic highlight from the cultural triangle to the wild south.",
+    highlights: ["Negombo Arrival", "Dambulla Cave Temple", "Sigiriya Rock Fortress", "Polonnaruwa", "Kandy Cultural Show", "Ella Train Country", "Yala Safari"],
+    itinerary: [
+      { day: "Day 1", title: "Airport → Negombo", items: ["Late evening arrival", "Overnight in Negombo"] },
+      { day: "Day 2", title: "Negombo → Sigiriya", items: ["Dambulla Cave Temple", "Village tour experience", "Overnight in Sigiriya"] },
+      { day: "Day 3", title: "Sigiriya + Polonnaruwa", items: ["Climb Sigiriya Rock Fortress", "Explore Polonnaruwa", "Overnight in Sigiriya"] },
+      { day: "Day 4", title: "Sigiriya → Kandy", items: ["Temple of the Sacred Tooth Relic", "Evening cultural show", "Overnight in Kandy"] },
+      { day: "Day 5", title: "Kandy → Ella", items: ["Ambuluwawa Tower", "Tea factory & plantation", "Ramboda Falls", "Overnight in Ella"] },
+      { day: "Day 6", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala", "Overnight in Yala"] },
+      { day: "Day 7", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    ]
+  },
 ]
 
 const testimonials = [
@@ -364,32 +459,46 @@ export default function HomePage() {
           <h2 className="playfair" style={{fontSize:"clamp(1.7rem,3.5vw,2.6rem)",marginBottom:"0.9rem",color:"#1a1a2e"}}>Tour Packages</h2>
           <p style={{color:"rgba(26,26,46,0.6)",fontSize:"0.93rem",maxWidth:490,margin:"0 auto",lineHeight:1.7}}>Thoughtfully designed itineraries for every kind of traveler.</p>
         </div>
-        <div className="pkg-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.3rem"}}>
+        <div className="pkg-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(2,1fr)",gap:"1.5rem"}}>
           {packages.map((pkg)=>(
-            <div key={pkg.id} className={`pkg-card${pkg.featured?" featured":""}`} style={{position:"relative"}}>
-              {pkg.featured&&<span style={{position:"absolute",top:"1.1rem",right:"1.1rem",background:"#FF8C00",color:"white",fontSize:"0.67rem",fontWeight:700,padding:"0.26rem 0.75rem",borderRadius:50}}>Most Popular</span>}
-              <span style={{fontSize:"1.8rem",marginBottom:"0.9rem",display:"block"}}>{pkg.icon}</span>
-              <div className="playfair" style={{fontSize:"1.15rem",marginBottom:"0.32rem",color:"#1a1a2e"}}>{pkg.name}</div>
-              <div style={{color:"#FFB347",fontSize:"0.79rem",fontWeight:600,marginBottom:"0.7rem"}}>{pkg.duration}</div>
-              <p style={{color:"rgba(26,26,46,0.65)",fontSize:"0.84rem",lineHeight:1.6,marginBottom:"1.2rem"}}>{pkg.desc}</p>
-              <ul style={{listStyle:"none",marginBottom:"1.4rem"}}>
-                {pkg.highlights.slice(0,3).map((h)=>(
-                  <li key={h} style={{fontSize:"0.82rem",color:"rgba(26,26,46,0.75)",marginBottom:"0.42rem",paddingLeft:"1.1rem",position:"relative"}}>
-                    <span style={{position:"absolute",left:0,top:3,color:"#FF8C00",fontSize:"0.58rem"}}>✦</span>{h}
-                  </li>
-                ))}
-              </ul>
-              {pkg.price?(
-                <div style={{marginBottom:"1rem"}}>
-                  <span style={{fontSize:"0.73rem",color:"rgba(26,26,46,0.45)",display:"block",marginBottom:2}}>From USD</span>
-                  <span className="playfair" style={{fontSize:"1.65rem",fontWeight:700,color:"#1a1a2e"}}>${pkg.price} <span style={{fontSize:"0.88rem",fontWeight:400}}>/ person</span></span>
+            <div key={pkg.id} className={`pkg-card${pkg.featured?" featured":""}`} style={{position:"relative",display:"flex",flexDirection:"column"}}>
+              {pkg.featured&&<span style={{position:"absolute",top:"1.1rem",right:"1.1rem",background:"#FF8C00",color:"white",fontSize:"0.67rem",fontWeight:700,padding:"0.26rem 0.85rem",borderRadius:50,zIndex:1}}>Most Popular</span>}
+              {/* Header */}
+              <div style={{display:"flex",alignItems:"flex-start",gap:"1rem",marginBottom:"1rem"}}>
+                <span style={{fontSize:"2rem",flexShrink:0}}>{pkg.icon}</span>
+                <div>
+                  <div className="playfair" style={{fontSize:"1.2rem",color:"#1a1a2e",marginBottom:"0.2rem"}}>{pkg.name}</div>
+                  <div style={{color:"#C8860A",fontSize:"0.8rem",fontWeight:700}}>{pkg.duration}</div>
+                  <div style={{color:"rgba(26,26,46,0.5)",fontSize:"0.72rem",marginTop:2}}>✦ Best for: {pkg.bestFor}</div>
                 </div>
-              ):(
-                <p style={{fontSize:"0.73rem",color:"rgba(26,26,46,0.45)",marginBottom:"1rem"}}>Pricing on request</p>
-              )}
-              <a href="#contact" style={{display:"block",width:"100%",textAlign:"center",background:pkg.featured?"#FF8C00":"rgba(255,140,0,0.14)",border:`1px solid ${pkg.featured?"#FF8C00":"rgba(255,140,0,0.4)"}`,color:pkg.featured?"white":"#FFB347",padding:"0.68rem",borderRadius:8,fontWeight:600,fontSize:"0.87rem",textDecoration:"none"}}>
-                {pkg.price?"Book This Tour":"Enquire Now"}
-              </a>
+              </div>
+              <p style={{color:"rgba(26,26,46,0.62)",fontSize:"0.83rem",lineHeight:1.62,marginBottom:"1.1rem"}}>{pkg.desc}</p>
+              {/* Itinerary */}
+              <div style={{marginBottom:"1.2rem",flex:1}}>
+                {pkg.itinerary.map((day: {day: string, title: string, items: string[]})=>(
+                  <div key={day.day} style={{marginBottom:"0.6rem",paddingLeft:"0.8rem",borderLeft:"2px solid rgba(200,134,10,0.25)"}}>
+                    <div style={{display:"flex",alignItems:"center",gap:"0.5rem",marginBottom:"0.25rem"}}>
+                      <span style={{background:"#C8860A",color:"white",fontSize:"0.62rem",fontWeight:700,padding:"0.15rem 0.5rem",borderRadius:50,flexShrink:0}}>{day.day}</span>
+                      <span style={{fontSize:"0.82rem",fontWeight:600,color:"#1a1a2e"}}>{day.title}</span>
+                    </div>
+                    <div style={{display:"flex",flexWrap:"wrap",gap:"0.3rem"}}>
+                      {day.items.map((item: string)=>(
+                        <span key={item} style={{fontSize:"0.7rem",color:"rgba(26,26,46,0.62)",background:"rgba(200,134,10,0.07)",padding:"0.18rem 0.55rem",borderRadius:50,border:"1px solid rgba(200,134,10,0.15)"}}>{item}</span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              {/* Price + CTA */}
+              <div style={{borderTop:"1px solid rgba(0,0,0,0.07)",paddingTop:"1rem",display:"flex",alignItems:"center",justifyContent:"space-between",gap:"1rem"}}>
+                <div>
+                  <span style={{fontSize:"0.7rem",color:"rgba(26,26,46,0.45)",display:"block"}}>From USD / person</span>
+                  <span className="playfair" style={{fontSize:"1.7rem",fontWeight:700,color:"#1a1a2e"}}>${pkg.price}</span>
+                </div>
+                <a href="#contact" style={{background:pkg.featured?"#FF8C00":"rgba(200,134,10,0.12)",border:`1.5px solid ${pkg.featured?"#FF8C00":"rgba(200,134,10,0.4)"}`,color:pkg.featured?"white":"#C8860A",padding:"0.65rem 1.4rem",borderRadius:50,fontWeight:700,fontSize:"0.85rem",textDecoration:"none",flexShrink:0,transition:"all .25s"}}>
+                  Book Now →
+                </a>
+              </div>
             </div>
           ))}
         </div>
@@ -504,12 +613,12 @@ export default function HomePage() {
 
         <div className="testi-grid reveal" style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:"1.3rem",marginBottom:"2.5rem"}}>
           {[
-            {initials:"SM",name:"Sarah M.",country:"🇬🇧 United Kingdom",stars:5,date:"March 2024",tour:"Classic Sri Lanka Tour",text:"Absolutely incredible experience from start to finish! Our guide was knowledgeable, funny, and went above and beyond. Sigiriya at sunrise, the Yala safari, the tea country — every day was magical. Fernando Tours truly creates memories."},
-            {initials:"JK",name:"Johann K.",country:"🇩🇪 Germany",stars:5,date:"February 2024",tour:"Wildlife Expedition",text:"3 leopards in one day at Yala — I still can't believe it! The private jeep and expert guide made all the difference. Fernando Tours organized everything perfectly and responded to every question within hours. Highly recommended!"},
-            {initials:"AP",name:"Anika P.",country:"🇺🇸 United States",stars:5,date:"January 2024",tour:"Honeymoon Special",text:"Our honeymoon was beyond perfect. Private pool villa, sunset whale watching, candlelit dinner on the beach — Fernando Tours thought of everything. Worth every penny and more. We are already planning to come back!"},
+            {initials:"SM",name:"Sarah M.",country:"🇬🇧 United Kingdom",stars:5,date:"March 2024",tour:"Classic Sri Lanka Journey",text:"Absolutely incredible experience from start to finish! Our guide was knowledgeable, funny, and went above and beyond. Sigiriya at sunrise, the Yala safari, the tea country — every day was magical. Fernando Tours truly creates memories."},
+            {initials:"JK",name:"Johann K.",country:"🇩🇪 Germany",stars:5,date:"February 2024",tour:"Classic Sri Lanka Journey",text:"3 leopards in one day at Yala — I still can't believe it! The private jeep and expert guide made all the difference. Fernando Tours organized everything perfectly and responded to every question within hours. Highly recommended!"},
+            {initials:"AP",name:"Anika P.",country:"🇺🇸 United States",stars:5,date:"January 2024",tour:"Ultimate Sri Lanka Discovery",text:"Our honeymoon was beyond perfect. Private pool villa, sunset whale watching, candlelit dinner on the beach — Fernando Tours thought of everything. Worth every penny and more. We are already planning to come back!"},
             {initials:"MC",name:"Marie C.",country:"🇫🇷 France",stars:5,date:"December 2023",tour:"Cultural Triangle",text:"We spent 6 days exploring ancient kingdoms and sacred temples. Our guide explained the history so beautifully — we felt like we truly understood Sri Lanka's soul. The early morning visit to Anuradhapura was spiritual and unforgettable."},
             {initials:"DL",name:"David L.",country:"🇦🇺 Australia",stars:5,date:"November 2023",tour:"Custom Tour",text:"Traveled solo for 10 days with a custom itinerary Fernando Tours designed just for me. Every detail was perfect — the guesthouses, the timing, the hidden spots no tourist knows. This is how Sri Lanka should be experienced."},
-            {initials:"YT",name:"Yuki T.",country:"🇯🇵 Japan",stars:5,date:"October 2023",tour:"Beach & Leisure",text:"The south coast is paradise! Whale watching from Mirissa was the highlight of my trip — we saw blue whales up close. Fernando Tours arranged everything seamlessly. The team is warm, professional, and genuinely passionate about their island."},
+            {initials:"YT",name:"Yuki T.",country:"🇯🇵 Japan",stars:5,date:"October 2023",tour:"Sri Lanka Highlights Escape",text:"The south coast is paradise! Whale watching from Mirissa was the highlight of my trip — we saw blue whales up close. Fernando Tours arranged everything seamlessly. The team is warm, professional, and genuinely passionate about their island."},
           ].map((t)=>(
             <div key={t.name} className="testi-card">
               <div style={{position:"absolute",top:"1.2rem",right:"1.4rem",fontFamily:"'Playfair Display',serif",fontSize:"3rem",color:"rgba(0,170,82,0.1)",lineHeight:1}}>&ldquo;</div>
