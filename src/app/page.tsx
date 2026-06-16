@@ -413,7 +413,7 @@ export default function HomePage() {
                 <div>
                   <div className="playfair" style={{fontSize:"1.2rem",color:"#1a1a2e",marginBottom:"0.2rem"}}>{pkg.name}</div>
                   <div style={{color:"#C8860A",fontSize:"0.8rem",fontWeight:700}}>{pkg.duration}</div>
-                  <div style={{color:"rgba(26,26,46,0.5)",fontSize:"0.72rem",marginTop:2}}>✦ Best for: {pkg.bestFor}</div>
+                  <div style={{color:"rgba(26,26,46,0.5)",fontSize:"0.72rem",marginTop:2}}>✦ Get in touch for pricing</div>
                 </div>
               </div>
               <p style={{color:"rgba(26,26,46,0.62)",fontSize:"0.83rem",lineHeight:1.62,marginBottom:"1.1rem"}}>{pkg.desc}</p>
