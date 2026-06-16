@@ -49,63 +49,54 @@ const packages = [
       "Day 7: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
     ]
   },
-]onst packages = [
+const packages = [
   {
-    id: 1, icon: "🌿", name: "Sri Lanka Highlights Escape", duration: "3 Nights / 4 Days", price: 320, featured: false,
-    bestFor: "Short holiday, first-time visitors",
-    desc: "A perfect short escape covering Kandy, Ella, and Yala — ideal for first-time visitors to Sri Lanka.",
-    highlights: ["Pinnawala Elephant Orphanage", "Temple of the Sacred Tooth Relic", "Nine Arches Bridge", "Yala National Park Safari", "Udawalawe Elephant Transit Home"],
-    itinerary: [
-      { day: "Day 1", title: "Airport → Kandy", items: ["Pickup from Airport / Hotel", "Pinnawala Elephant Orphanage", "Spice Garden in Mawanella", "Evening cultural show", "Overnight in Kandy"] },
-      { day: "Day 2", title: "Kandy → Ella", items: ["Temple of the Sacred Tooth Relic", "Ambuluwawa Tower", "Tea factory & plantation visit", "Ramboda Falls", "Overnight in Ella"] },
-      { day: "Day 3", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala National Park", "Overnight in Yala"] },
-      { day: "Day 4", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    id: 1, icon: "🌿", name: "Sri Lanka Highlights Escape", duration: "3 Nights / 4 Days", price: null, featured: false,
+    desc: "Perfect for first-time visitors and short holidays. Kandy, Ella, Yala in 4 days.",
+    highlights: [
+      "Day 1: Airport → Pinnawala Elephant Orphanage → Spice Garden → Kandy Cultural Show",
+      "Day 2: Temple of the Tooth → Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 3: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 4: Udawalawe Elephant Transit Home → Airport / Hotel Drop"
     ]
   },
   {
-    id: 2, icon: "🌿", name: "Nature + Culture Experience", duration: "4 Nights / 5 Days", price: 420, featured: false,
-    bestFor: "Balanced experience",
-    desc: "The perfect balance of ancient culture, stunning highlands, and thrilling wildlife across Sri Lanka.",
-    highlights: ["Dambulla Cave Temple", "Sigiriya Rock Fortress", "Temple of the Sacred Tooth Relic", "Yala Evening Safari", "Tea Plantation Tour"],
-    itinerary: [
-      { day: "Day 1", title: "Airport → Sigiriya / Dambulla", items: ["Dambulla Cave Temple", "Village tour experience", "Overnight in Sigiriya"] },
-      { day: "Day 2", title: "Sigiriya → Kandy", items: ["Climb Sigiriya Rock Fortress", "Travel to Kandy", "Evening cultural show", "Overnight in Kandy"] },
-      { day: "Day 3", title: "Kandy → Ella", items: ["Temple of the Sacred Tooth Relic", "Ambuluwawa Tower", "Tea factory & plantation", "Ramboda Falls", "Overnight in Ella"] },
-      { day: "Day 4", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala", "Overnight in Yala"] },
-      { day: "Day 5", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    id: 2, icon: "🌿", name: "Nature + Culture Experience", duration: "4 Nights / 5 Days", price: null, featured: false,
+    desc: "A balanced mix of ancient culture, wildlife, and scenic highlands. Sigiriya, Kandy, Ella and Yala.",
+    highlights: [
+      "Day 1: Airport → Dambulla Cave Temple → Village Tour → Sigiriya",
+      "Day 2: Sigiriya Rock Fortress → Kandy → Evening Cultural Show",
+      "Day 3: Temple of the Tooth → Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 4: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 5: Udawalawe Elephant Transit Home → Airport / Hotel Drop"
     ]
   },
   {
-    id: 3, icon: "🌿", name: "Classic Sri Lanka Journey", duration: "5 Nights / 6 Days", price: 520, featured: true,
-    bestFor: "Most popular full experience",
-    desc: "Our most popular tour — the complete Sri Lanka experience from ancient kingdoms to misty highlands and wild safari.",
-    highlights: ["Dambulla Cave Temple", "Sigiriya Rock Fortress", "Polonnaruwa Ancient City", "Temple of the Sacred Tooth Relic", "Ella Nine Arches Bridge", "Yala National Park Safari"],
-    itinerary: [
-      { day: "Day 1", title: "Airport → Sigiriya", items: ["Dambulla Cave Temple", "Village tour experience", "Overnight in Sigiriya"] },
-      { day: "Day 2", title: "Sigiriya + Polonnaruwa", items: ["Climb Sigiriya Rock Fortress", "Explore Polonnaruwa ancient city", "Overnight in Sigiriya"] },
-      { day: "Day 3", title: "Sigiriya → Kandy", items: ["Travel to Kandy", "Temple of the Sacred Tooth Relic", "Evening cultural show", "Overnight in Kandy"] },
-      { day: "Day 4", title: "Kandy → Ella", items: ["Ambuluwawa Tower", "Tea factory & plantation", "Ramboda Falls", "Overnight in Ella"] },
-      { day: "Day 5", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala", "Overnight in Yala"] },
-      { day: "Day 6", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    id: 3, icon: "🌿", name: "Classic Sri Lanka Journey", duration: "5 Nights / 6 Days", price: null, featured: true,
+    desc: "Our most popular tour! The full Sri Lanka experience — ruins, highlands, wildlife, and beaches.",
+    highlights: [
+      "Day 1: Airport → Dambulla Cave Temple → Village Tour → Sigiriya",
+      "Day 2: Sigiriya Rock Fortress → Polonnaruwa Ancient Ruins",
+      "Day 3: Travel to Kandy → Temple of the Tooth → Evening Cultural Show",
+      "Day 4: Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 5: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 6: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
     ]
   },
   {
-    id: 4, icon: "🌿", name: "Ultimate Sri Lanka Discovery", duration: "6 Nights / 7 Days", price: 620, featured: false,
-    bestFor: "Full island experience",
-    desc: "The ultimate Sri Lanka adventure — covering every iconic highlight from the cultural triangle to the wild south.",
-    highlights: ["Negombo Arrival", "Dambulla Cave Temple", "Sigiriya Rock Fortress", "Polonnaruwa", "Kandy Cultural Show", "Ella Train Country", "Yala Safari"],
-    itinerary: [
-      { day: "Day 1", title: "Airport → Negombo", items: ["Late evening arrival", "Overnight in Negombo"] },
-      { day: "Day 2", title: "Negombo → Sigiriya", items: ["Dambulla Cave Temple", "Village tour experience", "Overnight in Sigiriya"] },
-      { day: "Day 3", title: "Sigiriya + Polonnaruwa", items: ["Climb Sigiriya Rock Fortress", "Explore Polonnaruwa", "Overnight in Sigiriya"] },
-      { day: "Day 4", title: "Sigiriya → Kandy", items: ["Temple of the Sacred Tooth Relic", "Evening cultural show", "Overnight in Kandy"] },
-      { day: "Day 5", title: "Kandy → Ella", items: ["Ambuluwawa Tower", "Tea factory & plantation", "Ramboda Falls", "Overnight in Ella"] },
-      { day: "Day 6", title: "Ella → Yala", items: ["Nine Arches Bridge", "Little Adam's Peak hike", "Ravana Falls", "Evening Safari at Yala", "Overnight in Yala"] },
-      { day: "Day 7", title: "Yala → Departure", items: ["Udawalawe Elephant Transit Home", "Airport / Hotel drop"] },
+    id: 4, icon: "🌿", name: "Ultimate Sri Lanka Discovery", duration: "6 Nights / 7 Days", price: null, featured: false,
+    desc: "The complete island experience with an extra day for late arrivals. Perfect for those who want it all.",
+    highlights: [
+      "Day 1: Airport → Negombo (Late Evening Arrivals)",
+      "Day 2: Dambulla Cave Temple → Village Tour → Sigiriya",
+      "Day 3: Sigiriya Rock Fortress → Polonnaruwa Ancient Ruins",
+      "Day 4: Kandy → Temple of the Tooth → Evening Cultural Show",
+      "Day 5: Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
+      "Day 6: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
+      "Day 7: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
     ]
   },
 ]
-
 const testimonials = [
   { initials: "SR", name: "Sarah & Ryan Mitchell", country: "🇬🇧 United Kingdom", text: "Fernando Tours made our honeymoon absolutely magical. Every detail was perfect — the villa, the safaris, the beach sunsets. We'll treasure every memory." },
   { initials: "MK", name: "Michael Kaufmann", country: "🇩🇪 Germany", text: "The 10-day Classic tour exceeded every expectation. Our guide was incredible — knowledgeable, funny, and made us feel like family from day one." },
