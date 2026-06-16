@@ -49,53 +49,6 @@ const packages = [
       "Day 7: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
     ]
   },
-const packages = [
-  {
-    id: 1, icon: "🌿", name: "Sri Lanka Highlights Escape", duration: "3 Nights / 4 Days", price: null, featured: false,
-    desc: "Perfect for first-time visitors and short holidays. Kandy, Ella, Yala in 4 days.",
-    highlights: [
-      "Day 1: Airport → Pinnawala Elephant Orphanage → Spice Garden → Kandy Cultural Show",
-      "Day 2: Temple of the Tooth → Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
-      "Day 3: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
-      "Day 4: Udawalawe Elephant Transit Home → Airport / Hotel Drop"
-    ]
-  },
-  {
-    id: 2, icon: "🌿", name: "Nature + Culture Experience", duration: "4 Nights / 5 Days", price: null, featured: false,
-    desc: "A balanced mix of ancient culture, wildlife, and scenic highlands. Sigiriya, Kandy, Ella and Yala.",
-    highlights: [
-      "Day 1: Airport → Dambulla Cave Temple → Village Tour → Sigiriya",
-      "Day 2: Sigiriya Rock Fortress → Kandy → Evening Cultural Show",
-      "Day 3: Temple of the Tooth → Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
-      "Day 4: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
-      "Day 5: Udawalawe Elephant Transit Home → Airport / Hotel Drop"
-    ]
-  },
-  {
-    id: 3, icon: "🌿", name: "Classic Sri Lanka Journey", duration: "5 Nights / 6 Days", price: null, featured: true,
-    desc: "Our most popular tour! The full Sri Lanka experience — ruins, highlands, wildlife, and beaches.",
-    highlights: [
-      "Day 1: Airport → Dambulla Cave Temple → Village Tour → Sigiriya",
-      "Day 2: Sigiriya Rock Fortress → Polonnaruwa Ancient Ruins",
-      "Day 3: Travel to Kandy → Temple of the Tooth → Evening Cultural Show",
-      "Day 4: Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
-      "Day 5: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
-      "Day 6: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
-    ]
-  },
-  {
-    id: 4, icon: "🌿", name: "Ultimate Sri Lanka Discovery", duration: "6 Nights / 7 Days", price: null, featured: false,
-    desc: "The complete island experience with an extra day for late arrivals. Perfect for those who want it all.",
-    highlights: [
-      "Day 1: Airport → Negombo (Late Evening Arrivals)",
-      "Day 2: Dambulla Cave Temple → Village Tour → Sigiriya",
-      "Day 3: Sigiriya Rock Fortress → Polonnaruwa Ancient Ruins",
-      "Day 4: Kandy → Temple of the Tooth → Evening Cultural Show",
-      "Day 5: Ambuluwawa Tower → Tea Factory → Ramboda Falls → Ella",
-      "Day 6: Nine Arches Bridge → Little Adam's Peak → Ravana Falls → Yala Evening Safari",
-      "Day 7: Udawalawe Elephant Transit Home → Beach → Airport / Hotel Drop"
-    ]
-  },
 ]
 const testimonials = [
   { initials: "SR", name: "Sarah & Ryan Mitchell", country: "🇬🇧 United Kingdom", text: "Fernando Tours made our honeymoon absolutely magical. Every detail was perfect — the villa, the safaris, the beach sunsets. We'll treasure every memory." },
