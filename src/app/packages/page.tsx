@@ -415,7 +415,7 @@ export default function PackagesPage() {
                 <div style={{background:"#F0FAF4",border:"1px solid rgba(45,106,79,0.2)",borderRadius:12,padding:"1.2rem",margin:"1.5rem 0"}}>
                   <h4 style={{fontSize:"0.8rem",fontWeight:700,color:"#2d6a4f",letterSpacing:"1px",textTransform:"uppercase",marginBottom:"0.8rem"}}>All Tours Include</h4>
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"0.5rem"}}>
-                    {["Private air-conditioned vehicle","English-speaking expert guide","All transfers & pick-ups","Entrance fees to sites","Hotel drop / Airport drop","Flexible itinerary changes"].map(item => (
+                    {["Private air-conditioned vehicle","English-speaking expert guide","All transfers & pick-ups","Hotel drop / Airport drop","Flexible itinerary changes"].map(item => (
                       <div key={item} style={{display:"flex",alignItems:"center",gap:6,fontSize:"0.82rem",color:"rgba(26,26,46,0.75)"}}>
                         <span style={{color:"#2d6a4f",fontWeight:700,fontSize:"0.8rem"}}>✓</span> {item}
                       </div>
