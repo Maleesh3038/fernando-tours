@@ -674,11 +674,11 @@ export default function HomePage() {
             <h4 style={{color:"#FF8C00",fontSize:"0.75rem",fontWeight:700,letterSpacing:"1.5px",textTransform:"uppercase",marginBottom:"1rem"}}>Connect</h4>
             <div style={{display:"flex",gap:"0.65rem",marginBottom:"1rem"}}>
               {[
-                {s:"f",href:"#"},
-                {s:"ig",href:"#"},
-                {s:"wa",href:"https://wa.me/94712227665"},
+                {s:"f",href:"https://www.facebook.com/FernandoToursHikkaduwa/"},
+                {s:"ig",href:"https://www.instagram.com/fernando_tours?igsh=eW85cGMyc2RhczV1&utm_source=qr"},
+                {s:"ta",href:"https://www.tripadvisor.com/Attraction_Review-g304134-d13385779-Reviews-Fernando_Tours-Hikkaduwa_Galle_District_Southern_Province.html"},
               ].map(({s,href})=>(
-                <a key={s} href={href} target="_blank" rel="noopener noreferrer" style={{width:34,height:34,borderRadius:"50%",background:s==="wa"?"rgba(37,211,102,0.15)":"rgba(255,255,255,0.06)",border:s==="wa"?"1px solid rgba(37,211,102,0.4)":"1px solid rgba(255,255,255,0.1)",display:"flex",alignItems:"center",justifyContent:"center",color:s==="wa"?"#25D166":"rgba(255,255,255,0.6)",textDecoration:"none",fontSize:"0.75rem",fontWeight:600}}>{s}</a>
+                <a key={s} href={href} target="_blank" rel="noopener noreferrer" style={{width:34,height:34,borderRadius:"50%",background:s==="ta"?"rgba(0,170,82,0.15)":"rgba(255,255,255,0.06)",border:s==="ta"?"1px solid rgba(0,170,82,0.4)":"1px solid rgba(255,255,255,0.1)",display:"flex",alignItems:"center",justifyContent:"center",color:s==="ta"?"#00AA52":"rgba(255,255,255,0.6)",textDecoration:"none",fontSize:"0.75rem",fontWeight:600}}>{s}</a>
               ))}
             </div>
             <a href="#contact" className="foot-link">Get In Touch</a>

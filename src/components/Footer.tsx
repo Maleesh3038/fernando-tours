@@ -10,8 +10,8 @@ export default function Footer() {
         </div>
         <div>
           <p className="font-semibold text-white">Contact</p>
-          <p className="mt-4">Phone: +94 77 123 4567</p>
-          <p>Email: hello@fernandotours.lk</p>
+          <p className="mt-4">Phone: +94 71 222 7665</p>
+          <p>Email: fernandotourshikka@gmail.com</p>
         </div>
         <div>
           <p className="font-semibold text-white">Quick Links</p>
