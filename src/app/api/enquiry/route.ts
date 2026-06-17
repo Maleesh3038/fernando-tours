@@ -20,7 +20,7 @@ export async function POST(req: Request) {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
-          from: "Fernando Tours <onboarding@resend.dev>",
+          from: "Fernando Tours <enquiry@fernandotourslk.com>",
           to: [EMAIL_TO],
           reply_to: email,
           subject: `✈️ New Tour Enquiry from ${name} — ${tourInterest}`,
